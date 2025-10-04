@@ -16,13 +16,12 @@
 
 <resources>
 
-    <string name="app_name">MIDIKeyboard</string>
+    <string name="app_name">MIDI Keyboard</string>
     <string name="about_app">MIDI Keyboard View</string>
     <string name="title_activity_synth_setup">MIDI Keyboard</string>
 
     <string name="versionName">Sonivox MIDI Keyboard v1.6</string>
 
-    <string name="receivers_text">Receivers for Keys: </string>
     <string-array name="receivers">
         <item>"none"</item>
     </string-array>

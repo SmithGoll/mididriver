@@ -32,12 +32,6 @@
             android:text="@string/versionName"
             android:layout_marginRight="20dp"
             />
-
-        <TextView
-            android:id="@+id/text_receivers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/receivers_text" />
     </LinearLayout>
 
     <LinearLayout
