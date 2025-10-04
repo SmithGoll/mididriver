@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 
     private void setupMidi() {
         // Create midi driver
-        midi = MidiDriver.getInstance(this);
+        midi = MidiDriver.getInstance();
         midi.setReverb(ReverbConstants.OFF);
 
         mKeyboard = (MusicKeyboardView) findViewById(R.id.musicKeyboardView);
