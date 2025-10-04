@@ -66,47 +66,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupMidi();
-
-        mProgramButton = (Button) findViewById(R.id.button_program);
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_channels);
-        spinner.setOnItemSelectedListener(new ChannelSpinnerActivity());
-    }
-
-    @Override
-    public void onDestroy() {
-        if (midi != null)
-            midi.stop();
-
-        super.onDestroy();
-    }
-
-    // On resume
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        // Start midi
-        if (midi != null)
-            midi.start();
-    }
-
-    // On pause
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        // Stop midi
-        if (midi != null)
-            midi.stop();
-    }
-
-    private void setupMidi() {
         // Create midi driver
         midi = MidiDriver.getInstance();
-        midi.start();
-        midi.setReverb(ReverbConstants.OFF);
 
         mKeyboard = (MusicKeyboardView) findViewById(R.id.musicKeyboardView);
         mKeyboard.addMusicKeyListener(new MusicKeyboardView.MusicKeyListener() {
@@ -120,6 +81,43 @@ public class MainActivity extends Activity {
                 noteOff(mChannel, keyIndex, DEFAULT_VELOCITY);
             }
         });
+
+        mProgramButton = (Button) findViewById(R.id.button_program);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner_channels);
+        spinner.setOnItemSelectedListener(new ChannelSpinnerActivity());
+    }
+
+    @Override
+    public void onDestroy() {
+        if (midi != null) {
+            midi.stop();
+        }
+
+        super.onDestroy();
+    }
+
+    // On resume
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Start midi
+        if (midi != null) {
+            midi.start();
+            midi.setReverb(ReverbConstants.OFF);
+        }
+    }
+
+    // On pause
+    @Override
+    public void onPause() {
+        // Stop midi
+        if (midi != null) {
+            midi.stop();
+        }
+
+        super.onPause();
     }
 
     public void onProgramSend(View view) {
