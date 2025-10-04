@@ -76,10 +76,8 @@ public class MainActivity extends Activity {
 
     @Override
     public void onDestroy() {
-        if (midi != null) {
+        if (midi != null)
             midi.stop();
-            midi.shutdown();
-        }
 
         super.onDestroy();
     }
