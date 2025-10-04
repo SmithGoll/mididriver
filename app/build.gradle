@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    namespace "org.billthefarmer.miditest"
+    namespace "com.mobileer.midikeyboard"
 
     defaultConfig {
-        applicationId "org.billthefarmer.miditest"
+        applicationId "com.mobileer.midikeyboard"
         minSdkVersion 21
         targetSdkVersion 28
-        versionName "1.28"
-        versionCode 128
+        versionName "1.6"
+        versionCode 7
     }
 
     compileOptions {
