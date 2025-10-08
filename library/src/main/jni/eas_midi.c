@@ -199,20 +199,6 @@ static void EAS_InitStream (S_EAS_STREAM *pStream, EAS_VOID_PTR pParserModule, E
 }
 
 /*----------------------------------------------------------------------------
- * EAS_GetStreamParameter
- *----------------------------------------------------------------------------
- * Sets the specified parameter in the stream. Allows access to
- * customizable settings within the individual file parsers.
- *----------------------------------------------------------------------------
- * pEASData         - pointer to EAS persistent data object
- * pStream          - stream handle
- * param            - enumerated parameter (see eas_parser.h)
- * pValue           - pointer to variable to receive current setting
- *----------------------------------------------------------------------------
-*/
-EAS_RESULT EAS_GetStreamParameter (S_EAS_DATA *pEASData, EAS_HANDLE pStream, EAS_I32 param, EAS_I32 *pValue);
-
-/*----------------------------------------------------------------------------
  * VMIncRefCount()
  *----------------------------------------------------------------------------
  * Increment reference count for virtual synth
@@ -280,7 +266,7 @@ EAS_PUBLIC EAS_RESULT EAS_OpenMIDIStream (EAS_DATA_HANDLE pEASData, EAS_HANDLE *
     else
     {
         EAS_I32 value;
-        result = EAS_GetStreamParameter(pEASData, streamHandle, PARSER_DATA_SYNTH_HANDLE, &value);
+        result = MIDIStream_GetData(pEASData, streamHandle, PARSER_DATA_SYNTH_HANDLE, &value);
         pMIDIStream->pSynth = (S_SYNTH*) value;
         VMIncRefCount(pMIDIStream->pSynth);
     }
